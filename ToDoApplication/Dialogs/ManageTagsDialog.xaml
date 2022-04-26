@@ -92,25 +92,12 @@
 									Width="250"
 									Margin="10,2,2,2"
 									HorizontalAlignment="Left"
-									Text="{Binding Name, UpdateSourceTrigger=LostFocus, Mode=TwoWay}">
-									<!--<TextBox.InputBindings>
-									<KeyBinding
-										Key="Enter"
-										Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=DataContext.UpdateTagsCommand}"
-										CommandParameter="{Binding}" />
-								</TextBox.InputBindings>-->
-								</TextBox>
+									Text="{Binding Name, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" />
 
-								<TextBox
-									Width="250"
-									Margin="10,2,2,2"
-									HorizontalAlignment="Left"
-									Text="{Binding Colors, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" />
-
-								<!--<ComboBox
-									DisplayMemberPath="{Binding Path=Name}"
-									ItemsSource="{Binding Path=AvailableTagColors}"
-									SelectedItem="{Binding Colors, Mode=TwoWay}" />-->
+						
+								<ComboBox
+									ItemsSource="{Binding DataContext.AvailableTagColors, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}"
+									SelectedItem="{Binding Color, Mode=TwoWay}" />
 
 							</StackPanel>
 						</DataTemplate>

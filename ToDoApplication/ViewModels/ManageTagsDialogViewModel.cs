@@ -28,20 +28,20 @@ namespace ToDoApplication.ViewModels
 			}
 		}
 
-		private Color _colors;
+		//private Color _colors;
 
-		public Color Colors
-		{
-			get { return _colors; }
-			set
-			{
-				_colors = value;
-				AddTagCommand.RaiseCanExecuteChanged();
+		//public Color Colors
+		//{
+		//	get { return _colors; }
+		//	set
+		//	{
+		//		_colors = value;
+		//		AddTagCommand.RaiseCanExecuteChanged();
 			
-			}
-		}
+		//	}
+		//}
 
-		public ObservableCollection<string> AvailableTagColors { get; }
+		public ObservableCollection<TagColor> AvailableTagColors { get; set; }
 
 
 		private ToDoItemTagsViewModel _selectedTag;
@@ -81,14 +81,14 @@ namespace ToDoApplication.ViewModels
 			_dialogService = dialogService;
 			_tagRepository = tagRepository;
 			UpdateTagsCommand = new ActionCommand<ToDoItemTagsViewModel>(UpdateTags, CanUpdatetags);
-			AvailableTagColors = new ObservableCollection<string>();
-			
-			//AvailableTagColors.Add((Color)ColorConverter.ConvertFromString("Red"));
-			AvailableTagColors.Add("Blue");
-			AvailableTagColors.Add("Orange");
-			AvailableTagColors.Add("Green");
-			AvailableTagColors.Add("Yellow");
-			AvailableTagColors.Add("Red");
+			AvailableTagColors = new ObservableCollection<TagColor>
+			{ 
+			  TagColor.Default,
+			  TagColor.Color1,
+			  TagColor.Color2,
+			  TagColor.Color3,
+			  TagColor.Color4
+			};
 
 		}
 
@@ -131,7 +131,7 @@ namespace ToDoApplication.ViewModels
 		private bool CanAddTag()
 		{
 			//var value = (Color)Colors.SelectedColor;
-			return !string.IsNullOrEmpty(TagName) &&  Colors != null;
+			return !string.IsNullOrEmpty(TagName);
 		}
 
 		private void AddTag()
@@ -142,7 +142,7 @@ namespace ToDoApplication.ViewModels
 				{
 					Id = Guid.NewGuid(),
 					Name = TagName,
-					Colors = Colors
+					//Color = Color
 			};
 			Tags.Add(new ToDoItemTagsViewModel(tagModel, _tagRepository));
 			_tagRepository.Add(tagModel);
@@ -155,7 +155,7 @@ namespace ToDoApplication.ViewModels
 			{
 				Id = ITVM.Id,
 				Name = ITVM.Name,
-				Colors=ITVM.Colors
+				Color=ITVM.Color
 			};
 		}
 	}

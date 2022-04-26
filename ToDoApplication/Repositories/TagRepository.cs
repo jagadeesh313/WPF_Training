@@ -49,7 +49,7 @@ namespace ToDoApplication.Repositories
 			var itemToUpdate = updateinItems.Single(items => items.Id == tagItem.Id);
 			//itemToUpdate.Id = tagItem.Id;
 			itemToUpdate.Name = tagItem.Name;
-			itemToUpdate.Colors= tagItem.Colors;
+			itemToUpdate.Color= tagItem.Color;
 			saveItems(updateinItems);
 		}
 

@@ -18,16 +18,16 @@ namespace ToDoApplication.ViewModels
 		public Guid Id { get; set; }
 		//public string Name { get; set; }
 
-		public ObservableCollection<Color> AvailableTagColors { get; }
+		public ObservableCollection<Color> AvailableTagColors { get; set; }
 
-		private Color _colors;
+		private TagColor _color;
 
-		public Color Colors
+		public TagColor Color
 		{
-			get { return _colors; }
+			get { return _color; }
 			set
 			{ 
-				_colors = value;
+				_color = value;
 				_tagRepository.Update(createModel());
 			}
 		}
@@ -52,7 +52,7 @@ namespace ToDoApplication.ViewModels
 		
 			Id = tags.Id;
 			_name = tags.Name;
-			_colors = tags.Colors;
+			_color = tags.Color;
 			_tagRepository = tagRepository;
 		}
 
@@ -62,7 +62,7 @@ namespace ToDoApplication.ViewModels
 			{
 				Id = Id,
 				Name = Name,
-				Colors=Colors
+				Color=Color
 			};
 		}
 
