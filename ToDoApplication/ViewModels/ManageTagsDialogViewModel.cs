@@ -58,6 +58,18 @@ namespace ToDoApplication.ViewModels
 			}
 		}
 
+		private TagColor _selectedTagColor;
+
+		public TagColor SelectedTagColor
+		{
+			get { return _selectedTagColor; }
+			set {
+				_selectedTagColor = value;
+				AddTagCommand.RaiseCanExecuteChanged();
+			}
+		}
+
+
 		public ObservableCollection<ToDoItemTagsViewModel> Tags { get; }
 
 		private IEnumerable<Guid> _referencetagId;
@@ -142,7 +154,7 @@ namespace ToDoApplication.ViewModels
 				{
 					Id = Guid.NewGuid(),
 					Name = TagName,
-					//Color = Color
+					Color = SelectedTagColor 
 			};
 			Tags.Add(new ToDoItemTagsViewModel(tagModel, _tagRepository));
 			_tagRepository.Add(tagModel);

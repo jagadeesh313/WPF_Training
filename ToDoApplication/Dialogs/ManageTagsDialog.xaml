@@ -57,14 +57,7 @@
 					<ComboBox
 						Grid.Column="1"
 						ItemsSource="{Binding AvailableTagColors}"
-						SelectedItem="{Binding Colors, Mode=TwoWay}">
-						<ComboBox.ItemTemplate>
-							<DataTemplate DataType="VM:ToDoItemTagsViewModel">
-								<TextBlock Text="{Binding}" />
-							</DataTemplate>
-						</ComboBox.ItemTemplate>
-
-					</ComboBox>
+						SelectedItem="{Binding SelectedTagColor, Mode=TwoWay}" />
 					<Button
 						Grid.Column="2"
 						Margin="3"
@@ -92,12 +85,11 @@
 									Width="250"
 									Margin="10,2,2,2"
 									HorizontalAlignment="Left"
+									Background="{Binding Color, Mode=OneWay, Converter={StaticResource BackgroundColorConverter}}"
 									Text="{Binding Name, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" />
 
-						
-								<ComboBox
-									ItemsSource="{Binding DataContext.AvailableTagColors, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}"
-									SelectedItem="{Binding Color, Mode=TwoWay}" />
+
+								<ComboBox ItemsSource="{Binding DataContext.AvailableTagColors, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" SelectedItem="{Binding Color, Mode=TwoWay}" />
 
 							</StackPanel>
 						</DataTemplate>

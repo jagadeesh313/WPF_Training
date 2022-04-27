@@ -67,7 +67,7 @@
 						SelectionChanged="ComboBox_SelectionChanged">
 						<ComboBox.ItemTemplate>
 							<DataTemplate DataType="VM:ToDoItemTagsViewModel">
-								<customControls:ToDoItemTag TagColor="{Binding Colors}" TagText="{Binding Name}" />
+								<customControls:ToDoItemTag Background="{Binding Color, Converter={StaticResource BackgroundColorConverter}}" TagText="{Binding Name}" />
 							</DataTemplate>
 						</ComboBox.ItemTemplate>
 					</ComboBox>
@@ -199,9 +199,9 @@
 												<DataTemplate>
 
 													<customControls:ToDoItemTag
+														Background="{Binding Color, Converter={StaticResource BackgroundColorConverter}}"
 														RemoveTagCommand="{Binding DataContext.RemoveTagCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"
 														RemoveTagCommandParameter="{Binding}"
-														TagColor="{Binding Colors}"
 														TagText="{Binding Name}" />
 												</DataTemplate>
 											</ItemsControl.ItemTemplate>
