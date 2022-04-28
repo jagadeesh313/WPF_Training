@@ -13,4 +13,7 @@
 
 	<Converters:BackgroundColorConverter x:Key="BackgroundColorConverter" />
 
+	<Converters:ForegroundColorConverter x:Key="ForegroundColorConverter" />
+
+
 </ResourceDictionary>

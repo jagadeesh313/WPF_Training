@@ -86,10 +86,25 @@
 									Margin="10,2,2,2"
 									HorizontalAlignment="Left"
 									Background="{Binding Color, Mode=OneWay, Converter={StaticResource BackgroundColorConverter}}"
+									Foreground="{Binding Color, Mode=OneWay, Converter={StaticResource ForegroundColorConverter}}"
 									Text="{Binding Name, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" />
 
 
-								<ComboBox ItemsSource="{Binding DataContext.AvailableTagColors, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" SelectedItem="{Binding Color, Mode=TwoWay}" />
+								<ComboBox
+									Width="100"
+									ItemsSource="{Binding DataContext.AvailableTagColors, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}"
+									SelectedItem="{Binding Color, Mode=TwoWay}">
+									<ComboBox.ItemContainerStyle>
+										<Style TargetType="ComboBoxItem">
+											<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+										</Style>
+									</ComboBox.ItemContainerStyle>
+									<ComboBox.ItemTemplate>
+										<DataTemplate>
+											<Rectangle Height="20" Fill="{Binding ., Converter={StaticResource BackgroundColorConverter}}" />
+										</DataTemplate>
+									</ComboBox.ItemTemplate>
+								</ComboBox>
 
 							</StackPanel>
 						</DataTemplate>

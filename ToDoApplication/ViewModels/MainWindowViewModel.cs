@@ -26,7 +26,8 @@ namespace ToDoApplication.ViewModels
 
 		public ICollectionView ToListItemsSort
 		{
-			get { 
+			get 
+			{ 
 				return _ToListItemsSort;
 			}
 			set 

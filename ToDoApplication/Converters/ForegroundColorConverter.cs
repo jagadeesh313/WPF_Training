@@ -11,26 +11,25 @@ using ToDoApplication.Model;
 
 namespace ToDoApplication.Converters
 {
-	public class BackgroundColorConverter : IValueConverter
+	internal class ForegroundColorConverter : IValueConverter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-
-			if (value is TagColor tagColor)
-			{ switch (tagColor)
+			if(value is TagColor tagcolor)
+			{
+				switch(tagcolor)
 				{
 					case TagColor.Color1:
-						 return GetBrush("TagColor1");
+						return GetBrush("ForeGroundColor1");
 					case TagColor.Color2:
-						return GetBrush("TagColor2");
+						return GetBrush("ForeGroundColor2");
 					case TagColor.Color3:
-						return GetBrush("TagColor3");
+						return GetBrush("ForeGroundColor3");
 					case TagColor.Color4:
-						return GetBrush("TagColor4");
-
+						return GetBrush("ForeGroundColor4");
 				}
-			}
-			return GetBrush("TagColorDefault");
+			};
+			return  GetBrush("ForeGroundColorDefault"); ;
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -38,9 +37,9 @@ namespace ToDoApplication.Converters
 			throw new NotImplementedException();
 		}
 
-		private SolidColorBrush GetBrush(string resourceKey)
+		private SolidColorBrush GetBrush(string resourcekey)
 		{
-			var brush = Application.Current.Resources[resourceKey];
+			var brush = Application.Current.Resources[resourcekey];
 			return brush as SolidColorBrush;
 		}
 	}

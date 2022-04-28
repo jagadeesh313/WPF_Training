@@ -1,9 +1,22 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 	<SolidColorBrush x:Key="ButtonMainBrush" Color="#6002EE" />
 	<SolidColorBrush x:Key="ButtonMouseOverBrush" Color="#A774F3" />
 	<SolidColorBrush x:Key="ButtonIsDisabledBrush" Color="#E1DCE9" />
 	<SolidColorBrush x:Key="ButtonIsPressedBrush" Color="#CDB8ED" />
+
+	<!--  TagColors  -->
+	<SolidColorBrush x:Key="TagColor1" Color="#4527A0" />
+	<SolidColorBrush x:Key="TagColor2" Color="#5C6BC0" />
+	<SolidColorBrush x:Key="TagColor3" Color="#2196F3" />
+	<SolidColorBrush x:Key="TagColor4" Color="#0097A7" />
+	<SolidColorBrush x:Key="TagColorDefault" Color="#FF5252" />
+
+	<!--  ForeGround Colors  -->
+	<SolidColorBrush x:Key="ForeGroundColor1" Color="#FF5252" />
+	<SolidColorBrush x:Key="ForeGroundColor2" Color="#c6f68d" />
+	<SolidColorBrush x:Key="ForeGroundColor3" Color="#F50057" />
+	<SolidColorBrush x:Key="ForeGroundColor4" Color="#FFAB40" />
+	<SolidColorBrush x:Key="ForeGroundColorDefault" Color="#C5CAE9" />
 
 </ResourceDictionary>

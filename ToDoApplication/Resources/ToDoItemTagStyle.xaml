@@ -21,7 +21,7 @@
 							<TextBlock
 								x:Name="CustomTagTextBlock"
 								Margin="8"
-								Foreground="White"
+								Foreground="{TemplateBinding Foreground}"
 								Text="{TemplateBinding TagText}"
 								TextAlignment="Center" />
 							<Button
