@@ -15,14 +15,13 @@
 					<Border
 						Height="32"
 						Margin="5,0,0,0"
-						Background="Moccasin"
+						Background="{TemplateBinding Background}"
 						CornerRadius="6">
 						<StackPanel Orientation="Horizontal">
 							<TextBlock
 								x:Name="CustomTagTextBlock"
 								Margin="8"
-								Background="{TemplateBinding TagColor}"
-								Foreground="White"
+								Foreground="{TemplateBinding Foreground}"
 								Text="{TemplateBinding TagText}"
 								TextAlignment="Center" />
 							<Button

@@ -57,14 +57,7 @@
 					<ComboBox
 						Grid.Column="1"
 						ItemsSource="{Binding AvailableTagColors}"
-						SelectedItem="{Binding Colors, Mode=TwoWay}">
-						<ComboBox.ItemTemplate>
-							<DataTemplate DataType="VM:ToDoItemTagsViewModel">
-								<TextBlock Text="{Binding}" />
-							</DataTemplate>
-						</ComboBox.ItemTemplate>
-
-					</ComboBox>
+						SelectedItem="{Binding SelectedTagColor, Mode=TwoWay}" />
 					<Button
 						Grid.Column="2"
 						Margin="3"
@@ -92,25 +85,26 @@
 									Width="250"
 									Margin="10,2,2,2"
 									HorizontalAlignment="Left"
-									Text="{Binding Name, UpdateSourceTrigger=LostFocus, Mode=TwoWay}">
-									<!--<TextBox.InputBindings>
-									<KeyBinding
-										Key="Enter"
-										Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=DataContext.UpdateTagsCommand}"
-										CommandParameter="{Binding}" />
-								</TextBox.InputBindings>-->
-								</TextBox>
+									Background="{Binding Color, Mode=OneWay, Converter={StaticResource BackgroundColorConverter}}"
+									Foreground="{Binding Color, Mode=OneWay, Converter={StaticResource ForegroundColorConverter}}"
+									Text="{Binding Name, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" />
 
-								<TextBox
-									Width="250"
-									Margin="10,2,2,2"
-									HorizontalAlignment="Left"
-									Text="{Binding Colors, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" />
 
-								<!--<ComboBox
-									DisplayMemberPath="{Binding Path=Name}"
-									ItemsSource="{Binding Path=AvailableTagColors}"
-									SelectedItem="{Binding Colors, Mode=TwoWay}" />-->
+								<ComboBox
+									Width="100"
+									ItemsSource="{Binding DataContext.AvailableTagColors, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}"
+									SelectedItem="{Binding Color, Mode=TwoWay}">
+									<ComboBox.ItemContainerStyle>
+										<Style TargetType="ComboBoxItem">
+											<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+										</Style>
+									</ComboBox.ItemContainerStyle>
+									<ComboBox.ItemTemplate>
+										<DataTemplate>
+											<Rectangle Height="20" Fill="{Binding ., Converter={StaticResource BackgroundColorConverter}}" />
+										</DataTemplate>
+									</ComboBox.ItemTemplate>
+								</ComboBox>
 
 							</StackPanel>
 						</DataTemplate>
